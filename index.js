@@ -93,7 +93,7 @@ function processAndChunkSlackMessage(text) {
 
 // Listen for your shortcut
 
-app.shortcut('bionic_reader_shortcut', async ({ shortcut, ack, client }) => {
+app.shortcut('focus_reading_assistant', async ({ shortcut, ack, client }) => {
   try {
     await ack();
     const originalText = shortcut.message.text;
@@ -108,7 +108,7 @@ app.shortcut('bionic_reader_shortcut', async ({ shortcut, ack, client }) => {
       trigger_id: shortcut.trigger_id,
       view: {
         type: "modal",
-        title: { type: "plain_text", text: "Bionic Reader Mode" },
+        title: { type: "plain_text", text: "Focus Reading Assistant" },
         close: { type: "plain_text", text: "Close" },
         blocks: [
           {
@@ -129,5 +129,5 @@ app.shortcut('bionic_reader_shortcut', async ({ shortcut, ack, client }) => {
 
 (async () => {
   await app.start(process.env.PORT || 3000);
-  console.log('⚡️ Bionic Reader Slack App is running!');
+  console.log('⚡️ Focus Reading Slack App is running!');
 })();
